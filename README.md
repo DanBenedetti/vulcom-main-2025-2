@@ -37,7 +37,7 @@ Ainda no terminal, execute:
 
 ```
 npx prisma generate
-npx prisma migrate dev --name create-tables
+]
 ```
 
 ### Configuração das variáveis de ambiente

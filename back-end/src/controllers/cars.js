@@ -77,6 +77,13 @@ controller.retrieveOne = async function(req, res) {
       }
     })
 
+    /*
+    *
+    Vulnerabilidade: API1:2023 - Falha de autenticação a nível de objeto
+    Esta vulnerabilidade deveria ter sido evitada no código. Atualmente, qualquer usuário autenticado pode acessar detalhes de qualquer carro simplesmente fornecendo o `id` do carro. Para evitar isso, seria necessário adicionar uma verificação na cláusula `where` para garantir que o `created_user_id` do carro corresponda ao `req.authUser.id`, impedindo o acesso a objetos que o usuário não possui ou não tem permissão para visualizar.
+    *
+    */
+
     // Encontrou ~> retorna HTTP 200: OK (implícito)
     if(result) res.send(result)
     // Não encontrou ~> retorna HTTP 404: Not Found

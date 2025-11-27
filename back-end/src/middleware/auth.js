@@ -1,4 +1,10 @@
 /*
+*
+Vulnerabilidade: API2:2023 - Falha de autenticação
+Esta vulnerabilidade deveria ter sido evitada no código implementando um mecanismo de revogação de tokens (token blacklisting) para invalidar tokens de sessão imediatamente após o logout do usuário ou em caso de comprometimento. Atualmente, se um token for roubado, ele permanece válido até sua expiração natural, permitindo que um atacante mantenha o acesso.
+*
+*/
+/*
   Este middleware intercepta todas as rotas e verifica
   se um token de autorização foi enviado junto com a
   requisição

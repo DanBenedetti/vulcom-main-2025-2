@@ -7,6 +7,12 @@ const controller = {}     // Objeto vazio
 controller.create = async function(req, res) {
  try {
 
+    /*
+    *
+    Vulnerabilidade: API5:2023 - Falha de autenticação a nível de função
+    Esta vulnerabilidade deveria ter sido evitada no código. Atualmente, qualquer usuário autenticado pode criar um novo cliente, pois não há uma verificação para determinar se o usuário tem permissão de administrador. Para corrigir isso, seria necessário adicionar uma verificação de função (por exemplo, `if(! req?.authUser?.is_admin)`) no início desta e de outras funções neste controller para restringir o acesso apenas a usuários autorizados.
+    *
+    */
 
    // Sempre que houver um campo que represente uma data,
    // precisamos garantir sua conversão para o tipo Date
